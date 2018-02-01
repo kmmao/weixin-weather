@@ -1,0 +1,82 @@
+<scroll-view scroll-y class="page">
+  <view class="head" style="background-image: url({{weather.bg}})">
+    <view class="extra">
+      <text class="city">{{weather.city_name}}</text>
+      <text class="date">{{weather.format_last_update}}</text>
+    </view>
+    <view class="main">
+      <view class="temperature">{{weather.now.temperature}}<text>°</text>
+      </view>
+      <view class="weather">{{weather.now.text}}</view>
+      <view class="others">
+        <view class="pm">
+          <view class="wire">「 空气质量指数 」</view>{{weather.now.air_quality.city.aqi}} | {{weather.now.air_quality.city.quality}}</view>
+        <view class="wind">
+          <view class="wire">「 风向 」</view>{{weather.now.wind_direction}}风</view>
+        <view class="pm">
+          <view class="wire">「 风力 」</view>{{weather.now.wind_scale}}级 </view>
+        <view class="humidity">
+          <view class="wire">「 湿度 」</view>{{weather.now.humidity}}%</view>
+      </view>
+    </view>
+
+    <scroll-view scroll-x class="hourly">
+      <view class="wrap">
+        <view class="hour" wx:for="{{hourly}}" wx:for-item="item">
+          <view>{{item.format_time}}</view>
+          <image src="{{item.img}}" />
+          <view>{{item.temperature}}°</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="sunrise">
+      <view>
+        <title class="common">日出：</title>{{weather.today.sunrise}}</view>
+      <view>
+        <title class="common">日落：</title>{{weather.today.sunset}}</view>
+    </view>
+
+  </view>
+
+  <view class="suggestion">
+    <view class="car_washing">
+      <image src="../../images/background/car_washing.png" />
+      <view class="detail">
+        <view class="title">{{weather.today.suggestion.car_washing.brief}}</view>
+        <view class="description">{{weather.today.suggestion.car_washing.details}}</view>
+      </view>
+    </view>
+    <view class="dressing">
+      <image src="../../images/background/dressing.png" />
+      <view class="detail">
+        <view class="title">{{weather.today.suggestion.dressing.brief}}</view>
+        <view class="description">{{weather.today.suggestion.dressing.details}}</view>
+      </view>
+    </view>
+    <view class="flu">
+      <image src="../../images/background/flu.png" />
+      <view class="detail">
+        <view class="title">{{weather.today.suggestion.flu.brief}}</view>
+        <view class="description">{{weather.today.suggestion.flu.details}}</view>
+      </view>
+    </view>
+    <view class="uv">
+      <image src="../../images/background/uv.png" />
+      <view class="detail">
+        <view class="title">{{weather.today.suggestion.uv.brief}}</view>
+        <view class="description">{{weather.today.suggestion.uv.details}}</view>
+      </view>
+    </view>
+    <view class="sport">
+      <image src="../../images/background/sport.png" />
+      <view class="detail">
+        <view class="title">{{weather.today.suggestion.sport.brief}}</view>
+        <view class="description">{{weather.today.suggestion.sport.details}}</view>
+      </view>
+
+    </view>
+
+  </view>
+
+</scroll-view>

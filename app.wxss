@@ -1,0 +1,5 @@
+page,.page {
+  font-size: 30rpx;
+  background: #fff;
+  height: 100%;
+}
